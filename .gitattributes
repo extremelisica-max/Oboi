@@ -1,0 +1,16 @@
+# Keep binary asset types as binary to avoid line-ending issues in Git.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.eps binary
+*.ai binary
+*.psd binary
+
+# Keep large print assets from noisy diff output if needed later.
+*.pdf -diff
+*.png -diff
+*.jpg -diff
+*.jpeg -diff
+*.webp -diff

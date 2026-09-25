@@ -1,4 +1,24 @@
+# macOS / OS junk
 .DS_Store
 **/.DS_Store
-*.eps
+Thumbs.db
+desktop.ini
+
+# editor / temp files
+.vscode/
+.idea/
+*.swp
+*.tmp
+*.bak
+*.log
+
+# project junk
 _to_delete/
+archive/
+backup/
+
+# source files that should not be tracked unless needed explicitly
+*.eps
+*.psd
+*.ai
+*.sketch
