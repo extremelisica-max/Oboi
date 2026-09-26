@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oboi — catalog</title>
+    <meta
+      name="description"
+      content="Pinterest-style catalog of wallpaper patterns for orthopedic devices and patient-friendly design."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-group">
+          <div class="brand-mark">OM</div>
+          <div>
+            <p class="eyebrow">Patient-friendly design</p>
+            <h1>Обойные скины для ортезов</h1>
+          </div>
+        </div>
+
+        <nav class="top-actions" aria-label="Main navigation">
+          <a href="#catalog">Каталог</a>
+          <a href="01_Широкоформатные_обои_ортопедическая_клиника_бриф.md">Бриф</a>
+          <a href="README.md">О проекте</a>
+        </nav>
+      </header>
+
+      <main class="hero-panel">
+        <div class="hero-copy">
+          <span class="badge">Design for comfort</span>
+          <h2>Бесшовные узоры, которые делают ортез менее медицинским и более живым.</h2>
+          <p>
+            Ассортимент собран по эмоциям, возрастам и визуальным сценариям — от мягкой нейтральности
+            до ярких, узнаваемых образов для детей и подростков.
+          </p>
+          <div class="cta-row">
+            <a class="primary-btn" href="#catalog">Посмотреть подборку</a>
+            <a class="secondary-btn" href="01_Широкоформатные_обои_ортопедическая_клиника_бриф.md">Смотреть бриф</a>
+          </div>
+        </div>
+
+        <aside class="qr-panel" aria-label="Shareable project link">
+          <div class="qr-card">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fextremelisica-max.github.io%2FOboi%2F"
+              alt="QR код проекта"
+            />
+            <div>
+              <strong>Поделиться</strong>
+              <p>Ссылка для клиента или коллег</p>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <section id="catalog" class="catalog-wrap">
+        <div class="catalog-header">
+          <div>
+            <p class="eyebrow">Collection</p>
+            <h3>Набор визуальных тем</h3>
+          </div>
+          <div class="chip-row" aria-label="Topic filters">
+            <span>Все</span>
+            <span>Дети</span>
+            <span>Подростки</span>
+            <span>Взрослые</span>
+            <span>Нейтрально</span>
+          </div>
+        </div>
+
+        <div id="board" class="pinterest-board" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
