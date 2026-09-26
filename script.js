@@ -39,7 +39,7 @@ const cards = [
     title: 'Ферма',
     description: 'Дружелюбный, понятный и позитивный мотив для уверенного выбора родителей.',
     image: '05-Ферма/ферма_превью_повтор-72см_180x100.png',
-    pdf: '05-Ферма/ферма_печать_180x100.pdf',
+    pdf: null,
     tag: 'дети',
     height: 340,
     size: 'tall'
@@ -129,21 +129,27 @@ const cards = [
 
 const board = document.getElementById('board');
 
-board.innerHTML = cards.map((card) => `
-  <article class="pin ${card.size}">
-    <div class="pin-media" style="--height: ${card.height}px;">
-      <img src="${card.image}" alt="${card.title}" loading="lazy" />
-    </div>
-    <div class="pin-body">
-      <div class="pin-topline">
-        <span>${card.tag}</span>
+board.innerHTML = cards.map((card) => {
+  const pdfLink = card.pdf
+    ? `<a class="card-link" href="${card.pdf}" target="_blank" rel="noreferrer">PDF</a>`
+    : `<span class="card-link disabled" aria-disabled="true">PDF</span>`;
+
+  return `
+    <article class="pin ${card.size}">
+      <div class="pin-media" style="--height: ${card.height}px;">
+        <img src="${card.image}" alt="${card.title}" loading="lazy" />
       </div>
-      <h4>${card.title}</h4>
-      <p>${card.description}</p>
-      <div class="pin-footer">
-        <span>Ready to print</span>
-        <a class="card-link" href="${card.pdf}" target="_blank" rel="noreferrer">PDF</a>
+      <div class="pin-body">
+        <div class="pin-topline">
+          <span>${card.tag}</span>
+        </div>
+        <h4>${card.title}</h4>
+        <p>${card.description}</p>
+        <div class="pin-footer">
+          <span>Ready to print</span>
+          ${pdfLink}
+        </div>
       </div>
-    </div>
-  </article>
-`).join('');
+    </article>
+  `;
+}).join('');

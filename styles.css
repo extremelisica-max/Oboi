@@ -207,6 +207,15 @@ h1 {
   transform: translateY(-1px);
 }
 
+.card-link.disabled {
+  background: rgba(31, 36, 48, 0.06);
+  color: rgba(31, 36, 48, 0.48);
+  border: 1px solid rgba(31, 36, 48, 0.08);
+  pointer-events: none;
+  cursor: default;
+  box-shadow: none;
+}
+
 .qr-panel {
   display: flex;
 }
