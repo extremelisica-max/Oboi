@@ -1,0 +1,46 @@
+:root{
+  --bg:#F7F6F2;
+  --surface:#FFFFFF;
+  --text:#171717;
+  --muted:#777777;
+  --border:#E8E6E1;
+  --accent:#222222;
+  --radius:10px;
+  --gap:18px;
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:var(--bg);color:var(--text);}
+.container{max-width:1200px;margin:0 auto;padding:36px 20px}
+.site-header{background:transparent;padding:18px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:800;font-size:20px}
+.nav{display:flex;gap:20px}
+.nav a{color:var(--text);opacity:0.9;text-decoration:none;font-weight:600}
+.actions{display:flex;gap:12px;align-items:center}
+.icon-btn{background:transparent;border:1px solid var(--border);padding:8px;border-radius:8px}
+.primary{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;border:none}
+
+.hero{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;margin-bottom:30px}
+.hero h1{font-size:44px;margin:0 0 12px}
+.lead{color:var(--muted);font-size:18px;margin:0 0 18px}
+.hero-image{height:320px;border-radius:14px;background:linear-gradient(180deg,#eee,#ddd);border:1px solid var(--border)}
+
+.gallery{padding-bottom:80px}
+.chips{display:flex;gap:10px;overflow:auto;padding-bottom:12px}
+.chip{background:var(--surface);border:1px solid var(--border);padding:8px 12px;border-radius:999px;color:var(--muted)}
+
+.pinterest-board{column-count:4;column-gap:var(--gap)}
+@media(max-width:1200px){.pinterest-board{column-count:3}}
+@media(max-width:900px){.pinterest-board{column-count:2}}
+@media(max-width:480px){.pinterest-board{column-count:1}}
+
+.pin{display:inline-block;width:100%;margin:0 0 var(--gap);break-inside:avoid;background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.pin-media{position:relative}
+.pin-media img{width:100%;display:block;object-fit:cover}
+.pin-overlay{position:absolute;top:10px;right:10px}
+.save-btn{background:transparent;border:1px solid var(--border);padding:8px;border-radius:999px}
+.pin-body{padding:12px}
+.pin h4{font-size:16px;margin:0 0 8px}
+.pin-description{font-size:14px;color:var(--muted);margin:0}
+
