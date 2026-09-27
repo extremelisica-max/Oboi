@@ -138,10 +138,13 @@ board.innerHTML = cards.map((card) => {
     <article class="pin ${card.size}">
       <div class="pin-media" style="--height: ${card.height}px;">
         <img src="${card.image}" alt="${card.title}" loading="lazy" />
+        <div class="pin-overlay">
+          <button class="save-btn" aria-pressed="false">Сохранить</button>
+        </div>
       </div>
       <div class="pin-body">
         <div class="pin-topline">
-          <span>${card.tag}</span>
+          <div class="author-row"><span class="author-avatar"></span><span class="author-name">${card.tag}</span></div>
         </div>
         <h4>${card.title}</h4>
         <p>${card.description}</p>
@@ -153,3 +156,12 @@ board.innerHTML = cards.map((card) => {
     </article>
   `;
 }).join('');
+
+// Save button behaviour (local only)
+document.querySelectorAll('.save-btn').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const pressed = btn.classList.toggle('saved');
+    btn.setAttribute('aria-pressed', pressed);
+    btn.textContent = pressed ? 'Сохранено' : 'Сохранить';
+  });
+});
