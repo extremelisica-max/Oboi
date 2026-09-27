@@ -136,21 +136,21 @@ board.innerHTML = cards.map((card) => {
 
   return `
     <article class="pin ${card.size}">
-      <div class="pin-media" style="--height: ${card.height}px;">
+      <div class="pin-media">
         <img src="${card.image}" alt="${card.title}" loading="lazy" />
         <div class="pin-overlay">
           <button class="save-btn" aria-pressed="false">Сохранить</button>
         </div>
       </div>
       <div class="pin-body">
-        <div class="pin-topline">
-          <div class="author-row"><span class="author-avatar"></span><span class="author-name">${card.tag}</span></div>
-        </div>
         <h4>${card.title}</h4>
         <p>${card.description}</p>
-        <div class="pin-footer">
-          <span>Ready to print</span>
-          ${pdfLink}
+        <div class="pin-topline">
+          <div class="author-row"><span class="author-avatar"></span><span class="author-name">${card.tag}</span></div>
+          <div class="pin-footer">
+            <span>Ready to print</span>
+            ${pdfLink}
+          </div>
         </div>
       </div>
     </article>

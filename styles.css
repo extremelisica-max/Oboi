@@ -300,8 +300,8 @@ h1 {
 
 .pin:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(31,36,48,0.12); }
 
-.pin-media { position: relative; }
-.pin-media img { width: 100%; height: auto; display: block; }
+.pin-media { position: relative; width: 100%; overflow: hidden; }
+.pin-media img { width: 100%; height: auto; display: block; aspect-ratio: 3 / 2; object-fit: cover; }
 
 .pin-overlay {
   position: absolute;
@@ -326,10 +326,14 @@ h1 {
 
 .save-btn.saved { background: linear-gradient(135deg,#2e81eb,#5eb0ff); }
 
-.pin-body { padding: 12px 14px; }
-.pin-topline { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; }
 
-.pin-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:12px; }
+.pin-body { padding: 12px 14px; }
+.pin-topline { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:10px; }
+
+.pin-footer { display:flex; align-items:center; gap:12px; }
+
+.pin h4 { margin: 6px 0 8px; font-size: 1.05rem; }
+.pin p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height:1.4; }
 
 .author-row { display:flex; align-items:center; gap:10px; }
 .author-avatar { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#ddd,#f7f7f7); display:inline-block; }
