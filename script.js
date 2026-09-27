@@ -143,15 +143,13 @@ board.innerHTML = cards.map((card) => {
         </div>
       </div>
       <div class="pin-body">
-        <h4>${card.title}</h4>
-        <p>${card.description}</p>
-        <div class="pin-topline">
-          <div class="author-row"><span class="author-avatar"></span><span class="author-name">${card.tag}</span></div>
-          <div class="pin-footer">
-            <span>Ready to print</span>
+            <h4>${card.title}</h4>
+            <p class="pin-description">${card.description}</p>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+            <div class="author-row"><span class="author-avatar"></span><span class="author-name">${card.tag}</span></div>
             ${pdfLink}
           </div>
-        </div>
       </div>
     </article>
   `;

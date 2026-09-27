@@ -335,6 +335,16 @@ h1 {
 .pin h4 { margin: 6px 0 8px; font-size: 1.05rem; }
 .pin p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height:1.4; }
 
+/* Bento-style: image + compact internal description */
+.pin.bento { display: inline-flex; flex-direction: column; }
+.pin.bento .pin-media { order: 0; }
+.pin.bento .pin-body { order: 1; padding: 10px 12px; display:flex; flex-direction:column; gap:8px; }
+.pin.bento .pin-topline { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.pin.bento .pin-footer { margin-top:6px; justify-content:space-between; }
+.pin.bento .pin-media img { aspect-ratio: 4 / 3; }
+
+.pin .pin-description { display:block; max-height:3.6em; overflow:hidden; text-overflow:ellipsis; }
+
 .author-row { display:flex; align-items:center; gap:10px; }
 .author-avatar { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#ddd,#f7f7f7); display:inline-block; }
 .author-name { font-weight:700; font-size:0.95rem; }
