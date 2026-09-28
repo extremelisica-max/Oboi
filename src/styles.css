@@ -68,6 +68,28 @@ body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, '
 .pin:hover .pin-hover, .pin:focus .pin-hover { background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02)); pointer-events:auto }
 .pin:hover img, .pin:focus img { transform:scale(1.04) }
 
+/* Responsive behavior for exact 1440x900 layout */
+@media (min-width:1440px) and (min-height:900px){
+  .container{max-width:1320px}
+  .pinterest-board{column-count:5}
+}
+
+/* Above 1440 width: more columns */
+@media (min-width:1600px){
+  .pinterest-board{column-count:6}
+}
+
+/* Below 1440 width: fewer columns and stack behavior */
+@media (max-width:1439px){
+  .pinterest-board{column-count:3}
+}
+@media (max-width:1024px){
+  .pinterest-board{column-count:2}
+}
+@media (max-width:600px){
+  .pinterest-board{column-count:1}
+}
+
 /* author row styling to match reference */
 .author-row{display:flex;align-items:center;gap:10px;margin-top:12px}
 .author-avatar{width:36px;height:36px;border-radius:999px;object-fit:cover}
