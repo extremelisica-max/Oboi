@@ -21,7 +21,7 @@ body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, '
 .left-sidebar .sb-logo{width:40px;height:40px;display:block;margin:8px 0}
 .left-sidebar .sb-spacer{flex:1}
 .left-sidebar .sb-btn{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:8px;border:0;background:transparent;margin:6px 0;color:var(--muted);font-size:18px}
-.main-col{margin-left:64px;flex:1}
+.main-col{margin-left:64px;flex:1;min-width:0}
 .site-header{background:transparent;padding:8px 0;height:var(--header-height);position:sticky;top:0;z-index:40;background:linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,255,255,0.8));border-bottom:1px solid rgba(15,23,32,0.03)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{font-weight:700;font-size:18px}
@@ -81,7 +81,8 @@ body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, '
 /* When sidebar layout is active, left-align the container inside main column
    so it's not centered relative to viewport (prevents large left gap). */
 .layout-with-sidebar .container{
-  max-width:1320px;
+  max-width:none;
+  width:100%;
   margin:0;
   padding-left:24px;
   padding-right:24px;
