@@ -123,9 +123,9 @@ body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, '
 .modal .meta{color:var(--muted);font-size:var(--muted-size)}
 .infinite-sentinel{height:1px}
 .pin{opacity:0;transform:translateY(8px)}
-.pin img{transition:transform 420ms cubic-bezier(.2,.9,.2,1)}
-.pin img.loading{filter:blur(6px);transform:scale(1.03);min-height:220px}
-.pin-media{background:#f6f6f7}
+.pin img{transition:transform 420ms cubic-bezier(.2,.9,.2,1);display:block;width:100%;height:auto}
+.pin img.loading{filter:blur(6px);transform:scale(1.03);min-height:220px;height:100%;object-fit:cover}
+.pin-media{background:#f6f6f7;min-height:220px;display:block;overflow:hidden}
 .pin{height:auto}
 
 /* Make cards equal height on wider screens while allowing natural flow on small screens */
