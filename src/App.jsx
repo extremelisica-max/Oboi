@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
-import Hero from './components/Hero'
 import Gallery from './components/Gallery'
 import Splash from './components/Splash'
 import Login from './components/Login'
@@ -44,7 +43,6 @@ export default function App(){
       <div className="main-col">
         <Header onSearch={setQuery} favCount={favorites.length} />
         <main>
-          <Hero />
           <Gallery
               items={filtered.slice(0, visibleCount)}
             onLoadMore={()=> setVisibleCount(c=> c+8)}
