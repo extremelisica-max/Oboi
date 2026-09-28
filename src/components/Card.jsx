@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function Card({title, image, tag, description}){
+export default function Card({id, title, image, tag, description, onToggleFav, isFav, onOpen}){
   return (
-    <article className="pin bento">
+    <article className="pin bento" onClick={onOpen}>
       <div className="pin-media">
         <img src={image} alt={title} loading="lazy" />
         <div className="pin-overlay">
-          <button className="save-btn" aria-pressed="false">♡</button>
+          <button className={`save-btn ${isFav? 'saved':''}`} aria-pressed={isFav} onClick={(e)=>{e.stopPropagation(); onToggleFav(id)}}>{isFav? '♥' : '♡'}</button>
         </div>
       </div>
       <div className="pin-body">
