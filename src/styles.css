@@ -77,6 +77,15 @@ body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, '
   .pinterest-board{column-count:5}
 }
 
+/* When sidebar layout is active, left-align the container inside main column
+   so it's not centered relative to viewport (prevents large left gap). */
+.layout-with-sidebar .container{
+  max-width:1320px;
+  margin:0;
+  padding-left:24px;
+  padding-right:24px;
+}
+
 /* Above 1440 width: more columns */
 @media (min-width:1600px){
   .pinterest-board{column-count:6}
