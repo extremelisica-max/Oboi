@@ -45,38 +45,14 @@ export default function Login({onSuccess}){
 
   return (
     <div className="login-screen">
-      <div className="login-grid container">
-        <div className="smile-card">
-          <h3>Вход по улыбке</h3>
-          <p className="muted">Разместите лицо в кадре и улыбнитесь — система распознает улыбку.</p>
+      <div className="login-center">
+        <div className="login-box">
+          <img src="/assets/logo.png" alt="logo" className="login-logo" />
+          <h2 className="login-title">Выберите вариант входа</h2>
 
-          <div className="video-wrap">
-            {cameraActive ? (
-              <video ref={videoRef} autoPlay playsInline muted className="video-preview" />
-            ) : (
-              <div className="video-placeholder">Камера не активна</div>
-            )}
-          </div>
-
-          <div className="controls">
-            {!cameraActive ? (
-              <button className="primary" onClick={startCamera}>Начать по улыбке</button>
-            ) : (
-              <>
-                <button className="primary" onClick={handleDetect} disabled={detecting}>{detecting ? 'Определение...' : 'Определить улыбку'}</button>
-                <button className="icon-btn" onClick={stopCamera}>Остановить</button>
-              </>
-            )}
-          </div>
-        </div>
-
-        <div className="captcha-card">
-          <h4>Или войти по коду</h4>
-          <p className="muted">Если вы не хотите использовать камеру, используйте код доступа.</p>
-          <input placeholder="Введите код" value={captcha} onChange={e=>setCaptcha(e.target.value)} />
-          <div style={{marginTop:12, display:'flex', gap:8}}>
-            <button className="primary" onClick={()=> onSuccess()}>Войти</button>
-            <button className="icon-btn" onClick={()=> setUseCaptcha(u=>!u)}>{useCaptcha ? 'Скрыть' : 'Показать'}</button>
+          <div className="login-actions">
+            <button className="login-btn primary" onClick={() => { startCamera(); }}>{cameraActive ? 'Продолжить по улыбке' : 'Войти по улыбке'}</button>
+            <button className="login-btn ghost" onClick={()=> onSuccess()}>Войти по капче</button>
           </div>
         </div>
       </div>
