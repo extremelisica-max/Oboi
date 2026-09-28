@@ -1,14 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 export default function Card({id, title, image, tag, description, onToggleFav, isFav, onOpen}){
+  const [imgLoaded, setImgLoaded] = useState(false)
   const handleImgError = (e) => {
     e.currentTarget.src = '/assets/placeholder.png'
+    setImgLoaded(true)
   }
+  const handleImgLoad = () => setImgLoaded(true)
 
   return (
     <article className="pin bento" role="listitem" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter') onOpen() }} onClick={onOpen} aria-label={`${title}, ${tag}`}>
       <div className="pin-media">
-        <img src={image} alt={title} loading="lazy" onError={handleImgError} />
+        <img src={image} alt={title} loading="lazy" onError={handleImgError} onLoad={handleImgLoad} className={imgLoaded? '': 'loading'} style={{display:'block',width:'100%',minHeight: imgLoaded? 'auto' : 220}} />
 
         <div className="pin-hover">
           <div className="pin-top-actions">

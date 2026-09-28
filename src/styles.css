@@ -80,7 +80,8 @@ body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, '
 .infinite-sentinel{height:1px}
 .pin{opacity:0;transform:translateY(8px)}
 .pin img{transition:transform 420ms cubic-bezier(.2,.9,.2,1)}
-.pin img.loading{filter:blur(6px);transform:scale(1.03)}
+.pin img.loading{filter:blur(6px);transform:scale(1.03);min-height:220px}
+.pin-media{background:#f6f6f7}
 .pinterest-board .pin{animation:fadeSlide 360ms forwards}
 @keyframes fadeSlide{to{opacity:1;transform:none}}
 
