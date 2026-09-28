@@ -11,7 +11,7 @@ export default function Card({id, title, image, tag, description, onToggleFav, i
   return (
     <article className="pin bento" role="listitem" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter') onOpen() }} onClick={onOpen} aria-label={`${title}, ${tag}`}>
       <div className="pin-media">
-        <img src={image} alt={title} loading="lazy" onError={handleImgError} onLoad={handleImgLoad} className={imgLoaded? '': 'loading'} style={{display:'block',width:'100%',minHeight: imgLoaded? 'auto' : 220}} />
+        <img src={image} alt={title} loading="lazy" onError={handleImgError} onLoad={handleImgLoad} className={imgLoaded? '': 'loading'} style={{display:'block',width:'100%'}} />
 
         <div className="pin-hover">
           <div className="pin-top-actions">
