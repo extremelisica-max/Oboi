@@ -12,6 +12,11 @@
 *{box-sizing:border-box}
 body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:var(--bg);color:var(--text);}
 .container{max-width:1200px;margin:0 auto;padding:36px 20px}
+.layout-with-sidebar{display:flex;gap:20px}
+.left-sidebar{width:72px;display:flex;align-items:flex-start;position:fixed;left:18px;top:24px}
+.sidebar-inner{display:flex;flex-direction:column;gap:12px}
+.sb-btn{width:48px;height:48px;border-radius:12px;border:1px solid var(--border);background:var(--surface);display:grid;place-items:center}
+.main-col{margin-left:108px;flex:1}
 .site-header{background:transparent;padding:18px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{font-weight:800;font-size:20px}

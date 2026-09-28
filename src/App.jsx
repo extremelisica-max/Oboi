@@ -6,6 +6,7 @@ import Splash from './components/Splash'
 import Login from './components/Login'
 import ProductModal from './components/ProductModal'
 import sample from './data/sample'
+import LeftSidebar from './components/LeftSidebar'
 
 export default function App(){
   const [phase, setPhase] = useState('splash') // splash -> login -> ready
@@ -38,19 +39,22 @@ export default function App(){
   const filtered = sample.filter(s=> (category==='Все' || s.tag===category) && s.title.toLowerCase().includes(query.toLowerCase()))
 
   return (
-    <div className="app-shell">
-      <Header onSearch={setQuery} favCount={favorites.length} />
-      <main>
-        <Hero />
-        <Gallery
-          items={filtered.slice(0, visibleCount)}
-          onLoadMore={()=> setVisibleCount(c=> c+8)}
-          onToggleFav={toggleFav}
-          favorites={favorites}
-          onOpen={(item)=> setSelected(item)}
-          onSetCategory={setCategory}
-        />
-      </main>
+    <div className="app-shell layout-with-sidebar">
+      <LeftSidebar />
+      <div className="main-col">
+        <Header onSearch={setQuery} favCount={favorites.length} />
+        <main>
+          <Hero />
+          <Gallery
+            items={filtered.slice(0, visibleCount)}
+            onLoadMore={()=> setVisibleCount(c=> c+8)}
+            onToggleFav={toggleFav}
+            favorites={favorites}
+            onOpen={(item)=> setSelected(item)}
+            onSetCategory={setCategory}
+          />
+        </main>
+      </div>
       {selected && <ProductModal item={selected} onClose={()=> setSelected(null)} onToggleFav={toggleFav} isFav={favorites.includes(selected.id)} />}
     </div>
   )
