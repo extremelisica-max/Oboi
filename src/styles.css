@@ -109,6 +109,13 @@ body{font-family:Inter, Manrope, system-ui, -apple-system, 'Segoe UI', Roboto, '
   .pinterest-board{column-count:1}
 }
 
+/* Mobile side paddings: 16px left/right on small viewports */
+@media (max-width:600px){
+  .container{padding-left:16px;padding-right:16px}
+  .layout-with-sidebar .container{padding-left:16px;padding-right:16px}
+  .main-col{padding-left:16px;padding-right:16px}
+}
+
 /* author row styling to match reference */
 .author-row{display:flex;align-items:center;gap:10px;margin-top:12px}
 .author-avatar{width:36px;height:36px;border-radius:999px;object-fit:cover}
