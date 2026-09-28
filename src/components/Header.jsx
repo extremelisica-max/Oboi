@@ -18,7 +18,7 @@ export default function Header({onSearch, favCount}){
   return (
     <header className="site-header" role="banner">
       <div className="container header-inner">
-        <img src="/assets/logo.png" alt="Oboi" className="site-logo" aria-label="Oboi brand" />
+          <img src="/assets/Logo.png" alt="Oboi" className="site-logo" aria-label="Oboi brand" />
         <nav className="nav" aria-label="Main navigation">
           <a href="#catalog">Каталог</a>
           <a>Коллекции</a>

@@ -47,7 +47,7 @@ export default function Login({onSuccess}){
     <div className="login-screen">
       <div className="login-center">
         <div className="login-box">
-          <img src="/assets/logo.png" alt="logo" className="login-logo" />
+          <img src="/assets/Logo.png" alt="logo" className="login-logo" />
           <h2 className="login-title">Выберите вариант входа</h2>
 
           <div className="login-actions">
