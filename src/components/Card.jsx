@@ -5,8 +5,16 @@ export default function Card({id, title, image, tag, description, onToggleFav, i
     <article className="pin bento" role="listitem" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter') onOpen() }} onClick={onOpen} aria-label={`${title}, ${tag}`}>
       <div className="pin-media">
         <img src={image} alt={title} loading="lazy" />
-        <div className="pin-overlay">
-          <button className={`save-btn ${isFav? 'saved':''}`} aria-pressed={isFav} onClick={(e)=>{e.stopPropagation(); onToggleFav(id)}} aria-label={isFav? 'Убрать из избранного' : 'Добавить в избранное'}>{isFav? '♥' : '♡'}</button>
+
+        <div className="pin-hover">
+          <div className="pin-top-actions">
+            <button className={`save-btn ${isFav? 'saved':''}`} aria-pressed={isFav} onClick={(e)=>{e.stopPropagation(); onToggleFav(id)}} aria-label={isFav? 'Убрать из избранного' : 'Добавить в избранное'}>{isFav? '♥' : '♡'}</button>
+            <button className="dots-btn" onClick={(e)=>{e.stopPropagation(); /* TODO: open menu */}} aria-label="Меню">⋯</button>
+          </div>
+
+          <div className="pin-cta">
+            <button className="secondary" onClick={(e)=>{e.stopPropagation(); onOpen()}}>Подробнее</button>
+          </div>
         </div>
       </div>
       <div className="pin-body">
