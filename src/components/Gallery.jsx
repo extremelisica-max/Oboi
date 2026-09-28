@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Card from './Card'
 
-export default function Gallery({items, onLoadMore, onToggleFav, favorites, onOpen, onSetCategory}){
+export default function Gallery({items, onLoadMore, onToggleFav, favorites, onOpen, onSetCategory, category}){
   const sentinelRef = useRef(null)
 
   useEffect(()=>{
@@ -24,7 +24,7 @@ export default function Gallery({items, onLoadMore, onToggleFav, favorites, onOp
       <div className="filters">
         <div className="chips">
             {['Все','Природа','Абстракция','Флора','Геометрия','Текстуры','Мрамор','Детские','Минимализм','Классика'].map(c => (
-              <button key={c} className={`chip ${c === onSetCategory ? 'active' : ''}`} onClick={() => onSetCategory(c)}>{c}</button>
+              <button key={c} className={`chip ${c === category ? 'active' : ''}`} onClick={() => onSetCategory(c)}>{c}</button>
             ))}
         </div>
       </div>
