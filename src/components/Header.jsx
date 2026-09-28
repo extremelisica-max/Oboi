@@ -17,9 +17,9 @@ export default function Header({onSearch}){
 
   return (
     <header className="site-header" role="banner">
-      <div className="container header-inner" style={{justifyContent:'center'}}>
-        <label className="search-wrap" style={{width:'640px'}}>
-          <input aria-label="Поиск" placeholder="Поиск обоев" value={value} onChange={handleChange} />
+      <div className="container header-inner">
+        <label className="search-wrap">
+          <input className="search-input" aria-label="Поиск" placeholder="Поиск обоев" value={value} onChange={handleChange} />
         </label>
       </div>
     </header>
