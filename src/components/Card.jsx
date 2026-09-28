@@ -23,7 +23,8 @@ export default function Card({id, title, image, tag, description, onToggleFav, i
       <div className="pin-body">
         <div className="card-footer" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}}>
           <div style={{flex:1,minWidth:0}}>
-            <h4 style={{margin:0,fontSize:15}}>{title}</h4>
+            <h4 style={{margin:0,fontSize:16}}>{title}</h4>
+            {description && <p className="pin-description" style={{margin:'8px 0 0'}}>{description}</p>}
           </div>
           <div style={{display:'flex',alignItems:'center',gap:10}}>
             <button className="dots-btn" onClick={(e)=>{e.stopPropagation(); /* TODO: menu */}} aria-label="Меню">⋯</button>
