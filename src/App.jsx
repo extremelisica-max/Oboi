@@ -46,12 +46,13 @@ export default function App(){
         <main>
           <Hero />
           <Gallery
-            items={filtered.slice(0, visibleCount)}
+              items={filtered.slice(0, visibleCount)}
             onLoadMore={()=> setVisibleCount(c=> c+8)}
             onToggleFav={toggleFav}
             favorites={favorites}
             onOpen={(item)=> setSelected(item)}
-            onSetCategory={setCategory}
+              onSetCategory={setCategory}
+              category={category}
           />
         </main>
       </div>

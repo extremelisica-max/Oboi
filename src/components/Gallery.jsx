@@ -23,9 +23,9 @@ export default function Gallery({items, onLoadMore, onToggleFav, favorites, onOp
     <section className="gallery container">
       <div className="filters">
         <div className="chips">
-          {['Все','Природа','Абстракция','Флора','Геометрия','Текстуры','Мрамор','Детские','Минимализм','Классика'].map(c=> (
-            <button key={c} className="chip" onClick={()=> onSetCategory(c)}>{c}</button>
-          ))}
+            {['Все','Природа','Абстракция','Флора','Геометрия','Текстуры','Мрамор','Детские','Минимализм','Классика'].map(c => (
+              <button key={c} className={`chip ${c === onSetCategory ? 'active' : ''}`} onClick={() => onSetCategory(c)}>{c}</button>
+            ))}
         </div>
       </div>
 
