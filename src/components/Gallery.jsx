@@ -21,25 +21,19 @@ export default function Gallery({items, onLoadMore, onToggleFav, favorites, onOp
 
   return (
     <section className="gallery container">
-      <div className="filters">
-        <div className="chips">
-            {['Все','Природа','Абстракция','Флора','Геометрия','Текстуры','Мрамор','Детские','Минимализм','Классика'].map(c => (
-              <button key={c} className={`chip ${c === category ? 'active' : ''}`} onClick={() => onSetCategory(c)}>{c}</button>
-            ))}
-        </div>
+      <div className="tabs" role="tablist">
+        {['Все','Природа','Абстракция','Флора','Геометрия','Текстуры','Мрамор','Детские','Минимализм','Классика'].map(c => (
+          <button key={c} role="tab" aria-selected={c === category} className={`tab ${c === category ? 'active' : ''}`} onClick={() => onSetCategory(c)}>{c}</button>
+        ))}
       </div>
 
-      <div className="pinterest-board" role="list">
+      <div className="card-grid" role="list">
         {items.map((s)=> (
-          <Card key={s.id} {...s} onToggleFav={onToggleFav} isFav={favorites.includes(s.id)} onOpen={()=> onOpen(s)} />
+          <Card key={s.id} {...s} onOpen={()=> onOpen(s)} />
         ))}
       </div>
 
       <div ref={sentinelRef} aria-hidden className="infinite-sentinel" />
-
-      <div style={{textAlign:'center', marginTop:24}}>
-        <button className="primary" onClick={onLoadMore}>Показать ещё</button>
-      </div>
     </section>
   )
 }

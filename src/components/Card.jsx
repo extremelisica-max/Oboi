@@ -1,35 +1,30 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
+import CardMenu from './CardMenu'
 
-export default function Card({id, title, image, tag, description, onToggleFav, isFav, onOpen}){
+const placeholder = `${import.meta.env.BASE_URL}assets/placeholder.png`
+
+export default function Card({title, image, tag, onOpen}){
   const [imgLoaded, setImgLoaded] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const closeMenu = useCallback(()=> setMenuOpen(false), [])
   const handleImgError = (e) => {
-    e.currentTarget.src = '/assets/placeholder.png'
+    e.currentTarget.src = placeholder
     setImgLoaded(true)
   }
   const handleImgLoad = () => setImgLoaded(true)
 
   return (
-    <article className="pin bento" role="listitem" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter') onOpen() }} onClick={onOpen} aria-label={`${title}, ${tag}`}>
-      <div className="pin-media">
-        <img src={image} alt={title} loading="lazy" onError={handleImgError} onLoad={handleImgLoad} className={imgLoaded? '': 'loading'} style={{display:'block',width:'100%'}} />
-
-        <div className="pin-hover">
-          <div className="pin-top-actions">
-            <button className={`save-btn ${isFav? 'saved':''}`} aria-pressed={isFav} onClick={(e)=>{e.stopPropagation(); onToggleFav(id)}} aria-label={isFav? 'Убрать из избранного' : 'Добавить в избранное'}>{isFav? '♥' : '♡'}</button>
-          </div>
-        </div>
+    <article className="card" role="listitem" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter' && e.target===e.currentTarget) onOpen() }} onClick={onOpen} aria-label={`${title}, ${tag}`}>
+      <div className="card-media">
+        <img src={image} alt={title} loading="lazy" onError={handleImgError} onLoad={handleImgLoad} className={imgLoaded? '': 'loading'} />
       </div>
 
-      <div className="pin-body">
-        <div className="card-footer" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}}>
-          <div style={{flex:1,minWidth:0}}>
-            <h4 style={{margin:0,fontSize:14}}>{title}</h4>
-            {description && <p className="pin-description" style={{margin:'8px 0 0'}}>{description}</p>}
-          </div>
-          <div style={{display:'flex',alignItems:'center',gap:10}}>
-            <button className="dots-btn" onClick={(e)=>{e.stopPropagation(); /* TODO: menu */}} aria-label="Меню">⋯</button>
-          </div>
-        </div>
+      <div className="card-footer">
+        <h4 className="card-title">{title}</h4>
+        <button className="dots-btn" onPointerDown={(e)=> menuOpen && e.stopPropagation()} onClick={(e)=>{e.stopPropagation(); setMenuOpen(o=> !o)}} aria-label="Меню" aria-haspopup="menu" aria-expanded={menuOpen}>
+          <svg width="16" height="4" viewBox="0 0 16 4" aria-hidden="true"><circle cx="2" cy="2" r="2"/><circle cx="8" cy="2" r="2"/><circle cx="14" cy="2" r="2"/></svg>
+        </button>
+        {menuOpen && <CardMenu title={title} image={image} onClose={closeMenu} />}
       </div>
     </article>
   )
